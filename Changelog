@@ -1,0 +1,111 @@
+Changelog
+---------
+
+2.2
+-u option, files present with newer time stamp and same size are not copied
+fixed ETR
+fixed 'make install' on linux
+
+2.1
+fixed the total percentage
+
+2.0
+slightly new screen design
+border is off by default, get it back with border="on"
+
+1.7.1
+console output (-t) bug fixed
+removed -T flag
+-t is now silent, with summary
+-v now gives -t its original, verbose output
+
+1.7
+polish manual page
+now one malloc() per vcp, wtf was I thinking?
+config file fixes
+stripped .x off size copied and size
+interface now has border
+back to old code for flags
+
+1.6.2
+fatal config file bugs fixed
+global config file options
+man page updated
+removed 'Output to console'
+
+1.6.1
+fixed default screen state
+
+1.6
+displays percentage in status bar
+screen options (when finished)
+linux support for -p time
+Makefile supports more man paths
+-b option (sets buffer size)
+added more colors (bright)
+edited doc.
+
+1.5
+config file support
+-m option (multi-output)
+fixed error in man page (-L and -P)
+screen state (clear / leave) added
+-V option (prints version)
+-h option (prints detailed usage)
+color / flag changes
+-P default bug fixed
+
+1.4
+fatal bug fixed for Darwin / Mac OS X (?)
+screen updates
+
+1.3
+text output now has status bar, size/speed info.
+fixes for color and screen
+
+1.2
+slight interface changes
+fixed version
+fixed type'os / errors
+
+1.1
+color is disabled by default
+
+1.0
+color is now used for the display (can be turned off)
+fixes for usage()
+fixes for man page
+
+0.9
+removed 'v' from title
+added -d flag for delayed copying, less cpu/disk
+added the B (for KB,MB,GB) again, can fit happily
+now shows speed/s
+screen draws a bit faster
+fixed bsd+linux issues
+warns if infinite loop is entered
+got rid of DEBUG's
+log add/get does not require vsnprintf anymore
+added -I flag for [Y] to be default in interactive mode
+now handles long path names
+man page done
+shows flags enabled during copy
+other small changes
+
+0.8
+screen resize fixes
+text mode delay bug fixed
+added -t flag for text mode only
+cleaned up screen.c
+deleted the B off of KB,MB,GB, more screen real-estate
+edited some code to do with -H -L -P flags
+memory problem in log.c fixed
+changed copy memory buffer from 1024 KB to 512 KB
+cleaned up some useless debug messages
+fixed return code
+
+0.7
+fixed some compile bugs on linux (temp. fix)
+
+0.6
+initial release

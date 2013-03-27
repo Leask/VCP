@@ -1,0 +1,29 @@
+# VCP config
+#
+# file paths:
+# 1. /etc/vcp.conf
+# 2. ~/.vcp
+
+# valid colors:
+#  black, red, green, yellow, blue, magenta, cyan, white,
+#  black2,red2,green2,yellow2,blue2,magenta2,cyan2,white2,off (default)
+#
+#  the *2 colors are brighter
+#  if yellow looks brown try yellow2
+color = "off"
+
+# screen state when exiting,
+#  leave will simply exit
+#  summary will output to console
+#  keywait waits for a keypress then exits (default)
+screen = "keywait"
+
+# flags to enable
+flags = ""
+
+# read buffer size (leave blank for default)
+readbuf = ""
+
+# screen border, default off
+border = "off"
+

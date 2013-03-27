@@ -1,0 +1,129 @@
+.TH VCP 1
+.SH NAME
+VCP \- Copy files in a curses interface
+.SH SYNOPSIS
+options [\fB\-vdpVmhtu\fR] [\fB\-I\fR | \fB\-i\fR | \fB\-f\fR\ | \fB\-n\fR] [\fB\-R\fR [\fB\-P\fR | \fB\-H\fR | \fB\-L\fR]]
+.br
+        [\fB\-b\fR bytes]
+.br
+vcp [options] src dest
+.br
+vcp [options] src1 src2 .. destdir
+.br
+vcp [options -m] src dest1 dest2 ..
+.SH DESCRIPTION
+vcp copies files and directories in a curses interface, with text only
+output available. its options and output are similar to BSD's cp while
+adding some new features.
+.br
+It provides information on:
+.br
+- files copied and left to copy
+.br
+- data written and total data size
+.br
+- data being written every second
+.br
+- two status bars, one showing current file status, the other total status
+.br
+  (except with 1 file, both show current), and percentage
+.br
+when output is sent to the console:
+.br
+- a status bar
+.br
+- size copied and speed
+.br
+ 
+.br
+The config file (vcp.conf.sample) supports a few options,
+.br
+- color
+.br
+- screen state
+.br
+- default flags
+.br
+- read bufer size
+.br
+vcp checks the following files in order:
+.br
+1. /etc/vcp.conf
+.br
+2. ~/.vcp
+.br
+options are overwritten as they are read.
+.br
+.SH OPTIONS
+.TP
+\fB\-R\fR
+Copies directories (if the destination is a directory) with the destination as the subtree, 
+symbolic links are re-created and will not be indirected through, hard links are copied as 
+seperate files. Attempts to create special files instead of copying them.
+.TP
+\fB\-P\fR
+Needs \fB\-R\fR. No symbolic links are followed. Default.
+.TP
+\fB\-H\fR
+Needs \fB\-R\fR. Follows symbolic links on the command line. Other symbolic links are 
+not followed.
+.TP
+\fB\-L\fR
+Needs \fB\-R\fR. All symbolic links are followed.
+.TP
+\fB\-f\fR
+Exisiting files will be overwritten and re-created, without reguarding the permission.
+.TP
+\fB\-n\fR
+No existing files are overwritten.
+.TP
+\fB\-i\fR
+User is asked whether to overwrite a file or not when an existing file is found. If the first 
+input character is a y or Y the file is overwritten. The default (Enter key) does not overwrite 
+the file.
+.TP
+\fB\-I\fR
+Same as \fB\-i\fR, except the default (Enter key) is to overwrite the file.
+.TP
+\fB\-v\fR
+Verbose messages are printed.
+.TP
+\fB\-t\fR
+Text only output, a curses interface is not invoked and output is sent to the console.
+.TP
+\fB\-d\fR
+Delayed copying, les CPU and read/write, this will take longer.
+.TP
+\fB\-p\fR
+Attempts to copy files with as much information from the original as possible, access time, 
+flags, file modes, user IDs and group IDs. This is restricted if you do not have permission. 
+User and group IDs are handled similar to cp.
+.TP
+\fB\-m\fR
+Multi-output copy, copies one source to all the destinations.
+.TP
+\fB\-b\fR
+Sets the read buffer size in bytes, default is 204800
+.TP
+\fB\-V\fR
+Prints version and exits.
+.TP
+\fB\-u\fR
+Files present with newer time stamp and same size are not copied.
+.TP
+\fB\-h\fR
+Prints detailed usage and exits.
+.SH FILES
+/etc/vcp.conf - global
+.br
+$HOME/.vcp - user
+.SH SEE ALSO
+\fBcp\fR(1)
+.SH BUGS
+Special files, without -R, are not handled the way \fBcp\fR(1) does.
+.SH NOTES
+website: http://members.iinet.net.au/~lynx/vcp
+.SH AUTHORS
+Daniel Bryan <sisko@bsdmail.com>
+.br
+Jeremi Krzyzanski <albino@onomato.net> - polish translation

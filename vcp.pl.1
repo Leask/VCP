@@ -1,0 +1,118 @@
+.\" Plik ten jest kodowany w ISO-8859-2
+.\" Translated by Albnio <albino@onomato.net>
+.TH VCP 1
+.SH NAME
+VCP \- Kopiuje pliki w interface'sie biblioteki curses
+.SH SK£ADNIA
+opcje [\fB\-vdpVmht\fR] [\fB\-I\fR | \fB\-i\fR | \fB\-f\fR\ | \fB\-n\fR] [\fB\-R\fR [\fB\-P\fR | \fB\-H\fR | \fB\-L\fR]]
+.br
+        [\fB\-b\fR bajtów]
+.br
+vcp [opcje] ¼ród³o przeznaczenie
+.br
+vcp [opcje] ¼ród³o1 ¼ród³o2 .. przeznaczenie
+.br
+vcp [opcje -m] ¼ród³o przeznaczenie1 przeznaczenie2 ..
+.SH OPIS
+vcp kopiuje pliki i katalogi w interface'sie curses, gdzie wyj¶ciem jest tylko tekst. Same opcje oraz wyj¶cie s± podobne do BSD'owskiego programu cp. Dodano kilka nowych w³a¶ciwo¶ci.
+.br
+Ten program dostarcza takie informacje jak:
+.br
+- ile plików jest w trakcie kopiowania a ile ju¿ zosta³o skopiowanych
+.br
+- dane zapisane i ca³kowity rozmiar danych
+.br
+- sekundowy wykaz zapisywanych danych
+.br
+- dwa paski postêpu, pierwszy pokazuje aktualny status pliku, a drugi pokazuje ca³kowity status
+.br
+  (poza wyj±tkiem kiedy kopiujemy tylko jeden plik, wtedy obydwa paski pokazuj± to samo), i warto¶ci procentowe
+.br
+kiedy wyj¶cie jest skierowane do konsoli:
+.br
+- pasek postêpu
+.br
+- rozmiar skopiowanych danych oraz szybko¶æ
+.br
+ 
+.br
+Plik konfiguracyjny (vcp.conf.sample) umo¿liwia kilka opcji,
+.br
+- kolor
+.br
+- stan ekranu (wy¶wietlenia)
+.br
+- flagi (opcje) domy¶lne
+.br
+- czytanie wielko¶ci bufora
+.br
+vcp sprawdza pliki konfiguracyjne w nastêpuj±cej kolejno¶ci:
+.br
+1. /etc/vcp.conf
+.br
+2. ~/.vcp
+.br
+opcje s± przepisywane tak jak s± czytane.
+.br
+.SH OPCJE
+.TP
+\fB\-R\fR
+Kopiuje katalogi (je¶li przeznaczeniem jest katalog) z podkatalogami. Dowi±zania symboliczne s± tworzone ponownie i nie bêd± drog± po¶redni±, natomiast dowi±zania twarde (sta³e) s± kopiowane jako oddzielne pliki. Program próbuje tworzyæ specjalne pliki zamiast kopiowaæ je.
+.TP
+\fB\-P\fR
+Wymaga \fB\-R\fR. Dowi±zania symboliczne nie bêd± zastêpowane. Opcja domy¶lna.
+.TP
+\fB\-H\fR
+Wymaga \fB\-R\fR. Zastêpuje dowi±zania symboliczne okre¶lone w linii poleceñ. Inne dowi±zania symboliczne nie bêd± zastêpowane.
+.TP
+\fB\-L\fR
+Wymaga \fB\-R\fR. Wszystkie dowi±zania symboliczne bêd± zastêpowane.
+.TP
+\fB\-f\fR
+Istniej±ce pliki zostan± nad pisane i utworzone ponownie, bez zachowania do nich praw.
+.TP
+\fB\-n\fR
+Nie istniej±ce pliki bêd± nad pisywane.
+.TP
+\fB\-i\fR
+Je¶li plik zostanie znaleziony, u¿ytkownik zostaje zapytany czy go nad pisaæ czy nie. Je¶li pierwszym naci ¶niêtym klawiszem bêdzie y lub Y to plik zostanie nad pisany (zamieniony). Domy¶lnie (klawisz Enter) nie nad pisze pliku.
+.TP
+\fB\-I\fR
+To samo co \fB\-i\fR, lecz domy¶lnie (klawisz Enter) pliki s± nad pisywane.
+.TP
+\fB\-v\fR
+Wy¶wietlone zostan± dodatkowe informacje.
+.TP
+\fB\-t\fR
+Tryb tekstowy, interface curses nie bêdzie u¿yty, a wyj¶cie bêdzie skierowane na konsole.
+.TP
+\fB\-d\fR
+Opó¼nione kopiowanie. Mniejsze u¿ycie CPU i czytania/zapisu. zajmuje to wiêcej czasu.
+.TP
+\fB\-p\fR
+Próba kopiowania plików u¿ywaj±c przy tym jak najwiêcej informacji jak to mo¿liwe: czas dostêpu, flagi, tryb pliku, ID u¿ytkownika i grupy. Jest to ograniczone je¶li nie mo¿na odczytaæ tych informacji (prawa dostêpu). ID u¿ytkownika i grupy s± traktowane tak jak w cp.
+.TP
+\fB\-m\fR
+Kopiowanie z wieloma wyj¶ciami. Kopiuje jedno ¼ród³o do wielu miejsc przeznaczenia.
+.TP
+\fB\-b\fR
+Ustawienie czytania wielko¶ci bufora w bajtach. Domy¶lnie to 204800
+.TP
+\fB\-V\fR
+Wy¶wietla numer wersji i zakañcza pracê.
+.TP
+\fB\-h\fR
+Wy¶wietla szczegó³owe mo¿liwo¶ci u¿ycia programu i zakañcza pracê.
+.SH PLIKI
+/etc/vcp.conf - globalny
+.br
+$HOME/.vcp - u¿ytkownika
+.SH ZOBACZ TE¯
+\fBcp\fR(1)
+.SH B£ÊDY
+Plików specjalnych, bez opcji -R, nie mo¿na kopiowaæ tak jak w programie \fBcp\fR(1).
+.SH NOTY
+strona domowa: http://members.iinet.net.au/~lynx/vcp
+.SH AUTORZY
+Daniel Bryan <sisko@bsdmail.com>
+
