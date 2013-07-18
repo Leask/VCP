@@ -26,8 +26,5 @@ vcp checks the following files in order:
 2. ~/.vcp
 options are overwritten as they are read.
 
-WWW:
-http://members.iinet.net.au/~lynx/vcp
-
-- Daniel
-sisko@bsdmail.com
+## Original
+Fork from Daniel<sisko@bsdmail.com>'s http://members.iinet.net.au/~lynx/vcp
