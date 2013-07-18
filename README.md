@@ -27,4 +27,4 @@ vcp checks the following files in order:
 options are overwritten as they are read.
 
 ## Original
-Fork from Daniel<sisko@bsdmail.com>'s http://members.iinet.net.au/~lynx/vcp
+Fork from Daniel < sisko@bsdmail.com > 's http://members.iinet.net.au/~lynx/vcp
